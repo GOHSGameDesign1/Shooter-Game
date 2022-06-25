@@ -5,15 +5,55 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Rigidbody2D rb;
+    private PlayerInputActions playerInputActions;
+    public float runSpeed;
+    private Vector2 inputVector;
+    private bool isDashing;
+    public float dashingFrames;
+    public float dashingSpeed;
+
+
+    private void Awake()
     {
-        
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Movement.performed += Movement_Performed;
+        playerInputActions.Player.Dash.performed += Dash_Performed;
+
+        isDashing = false;
+    }
+
+    void Movement_Performed(InputAction.CallbackContext context)
+    {
+        Debug.Log(context);
+
+    }
+
+    void Dash_Performed(InputAction.CallbackContext context)
+    {
+        Debug.Log(context);
+        isDashing = true;
+        rb.velocity = inputVector * dashingSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(!isDashing) 
+        { 
+        inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+        rb.velocity = inputVector * runSpeed;
+        }
+        else
+        {
+            dashingFrames--;
+            if(dashingFrames <= 0)
+            {
+                dashingFrames = 30;
+                isDashing = false;
+            }
+        }
     }
 }
