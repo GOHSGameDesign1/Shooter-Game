@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    private PlayerInputActions playerInputActions;
+    PlayerInputActions playerInputActions;
     public float runSpeed;
     private Vector2 inputVector;
     private bool isDashing;

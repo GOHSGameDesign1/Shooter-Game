@@ -10,4 +10,5 @@ public class GunScriptableObject : ScriptableObject
     public float Ammo;
     public Sprite gunSprite;
     public bool canAutoFire;
+    public Vector3 fireCoordinates;
 }
