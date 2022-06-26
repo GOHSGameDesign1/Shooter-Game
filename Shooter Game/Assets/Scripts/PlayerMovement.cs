@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 inputVector;
     private bool isDashing;
     public float dashingFrames;
+    private float currentDashingFrames;
     public float dashingSpeed;
 
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         playerInputActions.Player.Dash.performed += Dash_Performed;
 
         isDashing = false;
+        currentDashingFrames = dashingFrames;
     }
 
     void Movement_Performed(InputAction.CallbackContext context)
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(context);
         isDashing = true;
         rb.velocity = inputVector * dashingSpeed;
+
     }
 
     // Update is called once per frame
@@ -48,11 +51,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            dashingFrames--;
-            if(dashingFrames <= 0)
+            currentDashingFrames--;
+            if(currentDashingFrames <= 0)
             {
-                dashingFrames = 30;
                 isDashing = false;
+                currentDashingFrames = dashingFrames;
             }
         }
     }
