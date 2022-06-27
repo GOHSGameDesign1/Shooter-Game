@@ -331,11 +331,6 @@ MonoBehaviour:
   runSpeed: 15
   dashingFrames: 25
   dashingSpeed: 70
---- !u!1 &1332830886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
-  m_PrefabInstance: {fileID: 7017175714011653104}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335712929
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,33 +462,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGun: {fileID: 11400000, guid: 871e219b3fe2c454b88b0792837838f9, type: 2}
   cam: {fileID: 519420031}
-  bullet: {fileID: 1332830886}
---- !u!1001 &7017175714011653104
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
-      propertyPath: m_Name
-      value: Bullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017175715340140888, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017175715340140888, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017175715340140888, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7017175715340140888, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -50.74
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
+  bullet: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
