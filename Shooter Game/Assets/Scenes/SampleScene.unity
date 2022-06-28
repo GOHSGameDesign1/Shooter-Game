@@ -219,6 +219,8 @@ GameObject:
   - component: {fileID: 1270606344}
   - component: {fileID: 1270606346}
   - component: {fileID: 1270606347}
+  - component: {fileID: 1270606348}
+  - component: {fileID: 1270606349}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -331,6 +333,35 @@ MonoBehaviour:
   runSpeed: 15
   dashingFrames: 25
   dashingSpeed: 70
+  shootingManager: {fileID: 0}
+--- !u!114 &1270606348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270606343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8852598449d684caef24e6265fa05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1270606347}
+  shootingManager: {fileID: 1270606349}
+--- !u!114 &1270606349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270606343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a097836a0b8a14fbc5e3611034b3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGun: {fileID: 11400000, guid: 871e219b3fe2c454b88b0792837838f9, type: 2}
+  bullet: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
 --- !u!1 &1335712929
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1335712930}
   m_Layer: 0
-  m_Name: Fire Point
+  m_Name: Fire_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,9 +403,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1531735130}
   - component: {fileID: 1531735131}
-  - component: {fileID: 1531735132}
   m_Layer: 0
-  m_Name: Gun Holder
+  m_Name: Gun_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,18 +478,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1531735132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531735129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a097836a0b8a14fbc5e3611034b3aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGun: {fileID: 11400000, guid: 871e219b3fe2c454b88b0792837838f9, type: 2}
-  cam: {fileID: 519420031}
-  bullet: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
