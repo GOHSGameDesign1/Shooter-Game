@@ -13,6 +13,7 @@ public class BulletBrain : MonoBehaviour
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        AI.ThinkStart(this);
     }
 
     // Update is called once per frame

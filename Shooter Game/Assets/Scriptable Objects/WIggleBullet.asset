@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d8b1decbc134d40bbe285429f395dd, type: 3}
-  m_Name: BasicBullet
+  m_Script: {fileID: 11500000, guid: a0cd17ea5ad47da49a1e7eac069a764c, type: 3}
+  m_Name: WIggleBullet
   m_EditorClassIdentifier: 
-  bulletSpeed: 70
+  bulletSpeed: 50

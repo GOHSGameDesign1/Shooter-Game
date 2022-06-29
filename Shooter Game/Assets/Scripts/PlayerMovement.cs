@@ -14,15 +14,10 @@ public class PlayerMovement : MonoBehaviour
     public float dashingFrames;
     private float currentDashingFrames;
     public float dashingSpeed;
-    public ShootingManager shootingManager;
 
 
     private void Awake()
     {
-        //playerInputActions = new PlayerInputActions();
-        //playerInputActions.Player.Enable();
-        //playerInputActions.Player.Movement.performed += Movement_Performed;
-       // playerInputActions.Player.Dash.performed += Dash_Performed;
 
         isDashing = false;
         currentDashingFrames = dashingFrames;
@@ -59,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //shootingManager.player(this);
     }
 
     public void PlayerInput(PlayerInputs playerInputs)

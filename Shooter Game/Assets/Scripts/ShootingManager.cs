@@ -12,7 +12,10 @@ public class ShootingManager : MonoBehaviour
     Transform firePoint;
     Transform gunHolder;
     PlayerInputActions playerInputActionsShooting;
+    GameObject currentBullet;
     public GameObject bullet;  //will change this to get from scriptable object later
+    bool offCooldown = true;
+    float shooting;
     
 
 
@@ -32,7 +35,8 @@ public class ShootingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Debug.Log(playerInputActionsShooting.Player.Fire.ReadValue<float>());
     }
 
     private void FixedUpdate()
@@ -41,8 +45,10 @@ public class ShootingManager : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         gunHolder.transform.rotation = Quaternion.Euler(0, 0, angle);
 
+        shooting = playerInputActionsShooting.Player.Fire.ReadValue<float>();
+
         //Code for flipping the around when pointing at certain angles
-        if(gunHolder.transform.rotation.eulerAngles.z > 90f && gunHolder.transform.rotation.eulerAngles.z < 270f)
+        if (gunHolder.transform.rotation.eulerAngles.z > 90f && gunHolder.transform.rotation.eulerAngles.z < 270f)
         {
             spriteRenderer.flipY = true;
         }
@@ -50,18 +56,47 @@ public class ShootingManager : MonoBehaviour
         {
             spriteRenderer.flipY = false;
         }
+
+        if (shooting == 1 && currentGun.canAutoFire && offCooldown)
+        {
+            offCooldown = false;
+
+            Shoot();
+
+            StartCoroutine("Cooldown");
+        }
     }
 
     void Fire_Performed(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
+        if (!currentGun.canAutoFire && offCooldown) 
+        {
+            offCooldown = false;
 
-        Instantiate(bullet, firePoint.transform.position, gunHolder.transform.rotation);
+            Shoot();
+
+            StartCoroutine("Cooldown");
+        }
     }
 
     public void PlayerInput(PlayerInputs playerInputs)
     {
         playerInputActionsShooting = playerInputs.playerInputActions;
         playerInputActionsShooting.Player.Fire.performed += Fire_Performed;
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(currentGun.fireRate);
+        offCooldown = true;
+    }
+
+    void Shoot()
+    {
+        for(int i = 0; i < currentGun.bulletsShotAtOnce; i++)
+        {
+            currentBullet = Instantiate(bullet, firePoint.transform.position, gunHolder.transform.rotation);
+            currentBullet.GetComponent<BulletBrain>().AI = currentGun.bulletAI;
+        }
     }
 }

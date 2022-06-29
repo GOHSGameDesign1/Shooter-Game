@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76e16b37a3e650d4397da15056254794, type: 3}
-  m_Name: Handgun
+  m_Name: AssultRifle
   m_EditorClassIdentifier: 
   fireRate: 0.1
-  damage: 3
-  Ammo: 7
-  gunSprite: {fileID: 21300000, guid: a482e2dec499c764ba7226e9cc15fb0d, type: 3}
-  canAutoFire: 0
-  fireCoordinates: {x: 10, y: 0, z: 0}
+  damage: 5
+  Ammo: 25
+  gunSprite: {fileID: 3625043607559282579, guid: 1fe17dadc2d1a6e4088e05ee71affaea, type: 3}
+  canAutoFire: 1
+  fireCoordinates: {x: 1, y: 0, z: 0}
   bulletAI: {fileID: 11400000, guid: efe0f4e875a4ae948a9e41175a495d8e, type: 2}
   bulletsShotAtOnce: 1
