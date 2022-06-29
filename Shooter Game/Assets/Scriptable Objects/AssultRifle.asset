@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e16b37a3e650d4397da15056254794, type: 3}
   m_Name: AssultRifle
   m_EditorClassIdentifier: 
-  fireRate: 0.1
+  fireRate: 0.01
   damage: 5
   Ammo: 25
-  gunSprite: {fileID: 3625043607559282579, guid: 1fe17dadc2d1a6e4088e05ee71affaea, type: 3}
+  gunSprite: {fileID: 21300000, guid: 488314b81770e6349b6391c4ff108d56, type: 3}
   canAutoFire: 1
-  fireCoordinates: {x: 1, y: 0, z: 0}
+  fireCoordinates: {x: 0.7, y: 0, z: 0}
   bulletAI: {fileID: 11400000, guid: efe0f4e875a4ae948a9e41175a495d8e, type: 2}
   bulletsShotAtOnce: 1

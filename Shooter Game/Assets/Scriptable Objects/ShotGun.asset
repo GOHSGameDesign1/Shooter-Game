@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e16b37a3e650d4397da15056254794, type: 3}
   m_Name: ShotGun
   m_EditorClassIdentifier: 
-  fireRate: 0
-  damage: 0
-  Ammo: 0
-  gunSprite: {fileID: 0}
+  fireRate: 1
+  damage: 5
+  Ammo: 5
+  gunSprite: {fileID: 7482667652216324306, guid: deb54fd1f91e10747a12746a22d34021, type: 3}
   canAutoFire: 0
-  fireCoordinates: {x: 0, y: 0, z: 0}
-  bulletAI: {fileID: 0}
-  bulletsShotAtOnce: 0
+  fireCoordinates: {x: 1, y: 0, z: 0}
+  bulletAI: {fileID: 11400000, guid: 6d0a38675b4c08e41969adb1f051df0a, type: 2}
+  bulletsShotAtOnce: 5
