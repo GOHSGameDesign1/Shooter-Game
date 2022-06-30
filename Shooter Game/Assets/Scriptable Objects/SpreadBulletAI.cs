@@ -18,4 +18,9 @@ public class SpreadBulletAI : BulletAI
     {
         bullet.transform.Rotate(0, 0, Random.Range(-20, 20));
     }
+
+    public override void ThinkCollide(BulletBrain bullet)
+    {
+        bullet.EnemyHit();
+    }
 }

@@ -97,6 +97,7 @@ public class ShootingManager : MonoBehaviour
         {
             currentBullet = Instantiate(bullet, firePoint.transform.position, gunHolder.transform.rotation);
             currentBullet.GetComponent<BulletBrain>().AI = currentGun.bulletAI;
+            currentBullet.GetComponent<BulletBrain>().currentGun = currentGun;
         }
     }
 }

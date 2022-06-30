@@ -19,4 +19,9 @@ public class WiggleAI : BulletAI
     {
 
     }
+
+    public override void ThinkCollide(BulletBrain bullet)
+    {
+        bullet.EnemyHit();
+    }
 }
