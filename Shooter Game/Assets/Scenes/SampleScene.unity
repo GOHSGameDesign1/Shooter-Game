@@ -193,11 +193,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150767964632654223, guid: 0be693e908416264392884f325001b12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.86
+      value: -16.75
       objectReference: {fileID: 0}
     - target: {fileID: 5150767964632654223, guid: 0be693e908416264392884f325001b12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.85
+      value: -6.06
       objectReference: {fileID: 0}
     - target: {fileID: 5150767964632654223, guid: 0be693e908416264392884f325001b12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -589,6 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGun: {fileID: 11400000, guid: 871e219b3fe2c454b88b0792837838f9, type: 2}
   bullet: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
+  currentAmmo: 0
 --- !u!1 &1335712929
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class BulletBrain : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         AI = currentGun.bulletAI;
         damage = currentGun.damage;
+        bulletSpeed = currentGun.bulletSpeed;
         AI.ThinkStart(this);
     }
 
@@ -67,5 +68,11 @@ public class BulletBrain : MonoBehaviour
             currentCollidingEnemy.GetComponent<EnemyHealth>().health -= damage;
             Destroy(gameObject);
         }
+    }
+
+    public void Move()
+    {
+        //rb.velocity = transform.right * bulletSpeed;
+        rb.MovePosition(rb.position + (Vector2)transform.right.normalized * bulletSpeed * Time.fixedDeltaTime);
     }
 }

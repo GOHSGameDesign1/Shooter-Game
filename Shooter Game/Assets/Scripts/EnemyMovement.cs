@@ -26,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = direction.normalized * runSpeed;
+        //rb.velocity = direction.normalized * runSpeed;
+        rb.MovePosition(rb.position + direction.normalized * runSpeed * Time.fixedDeltaTime);
     }
 }

@@ -16,6 +16,10 @@ public class ShootingManager : MonoBehaviour
     public GameObject bullet;  //will change this to get from scriptable object later
     bool offCooldown = true;
     float shooting;
+    float Ammo;
+    public float currentAmmo;
+    bool hasAmmo;
+    bool reloading;
     
 
 
@@ -26,6 +30,9 @@ public class ShootingManager : MonoBehaviour
         firePoint = transform.Find("Gun_Holder/Fire_Point");
         firePoint.transform.position = currentGun.fireCoordinates;
         spriteRenderer.sprite = currentGun.gunSprite;
+        Ammo = currentGun.Ammo;
+        currentAmmo = Ammo;
+        hasAmmo = true;
 
         //shooting = new PlayerInputActions();
         //shooting.Player.Enable();
@@ -46,6 +53,12 @@ public class ShootingManager : MonoBehaviour
         gunHolder.transform.rotation = Quaternion.Euler(0, 0, angle);
 
         shooting = playerInputActionsShooting.Player.Fire.ReadValue<float>();
+        Ammo = currentGun.Ammo;
+
+        if(currentAmmo <= 0) 
+        { 
+            hasAmmo = false;
+        }
 
         //Code for flipping the around when pointing at certain angles
         if (gunHolder.transform.rotation.eulerAngles.z > 90f && gunHolder.transform.rotation.eulerAngles.z < 270f)
@@ -57,7 +70,7 @@ public class ShootingManager : MonoBehaviour
             spriteRenderer.flipY = false;
         }
 
-        if (shooting == 1 && currentGun.canAutoFire && offCooldown)
+        if (shooting == 1 && currentGun.canAutoFire && offCooldown && hasAmmo)
         {
             offCooldown = false;
 
@@ -69,7 +82,7 @@ public class ShootingManager : MonoBehaviour
 
     void Fire_Performed(InputAction.CallbackContext context)
     {
-        if (!currentGun.canAutoFire && offCooldown) 
+        if (!currentGun.canAutoFire && offCooldown && hasAmmo)
         {
             offCooldown = false;
 
@@ -77,18 +90,51 @@ public class ShootingManager : MonoBehaviour
 
             StartCoroutine("Cooldown");
         }
+
+
+    }
+
+    void Reload_Performed(InputAction.CallbackContext context)
+    {
+        Debug.Log(context.control.name);
+        if(context.control.name == "r")
+        {
+            if(currentAmmo != Ammo && !reloading)
+            {
+                StartCoroutine("Reload");
+            }
+        }
+
+        if(context.control.name == "leftButton")
+        {
+            if(currentAmmo <= 0 && !reloading)
+            {
+                StartCoroutine("Reload");
+            }
+        }
     }
 
     public void PlayerInput(PlayerInputs playerInputs)
     {
         playerInputActionsShooting = playerInputs.playerInputActions;
         playerInputActionsShooting.Player.Fire.performed += Fire_Performed;
+        playerInputActionsShooting.Player.Reload.performed += Reload_Performed;
     }
 
     IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(currentGun.fireRate);
         offCooldown = true;
+    }
+
+    IEnumerator Reload()
+    {
+        reloading = true;
+        Debug.Log("Reloading...");
+        yield return new WaitForSeconds(currentGun.ReloadTime);
+        currentAmmo = Ammo;
+        hasAmmo = true;
+        reloading = false;
     }
 
     void Shoot()
@@ -99,5 +145,7 @@ public class ShootingManager : MonoBehaviour
             currentBullet.GetComponent<BulletBrain>().AI = currentGun.bulletAI;
             currentBullet.GetComponent<BulletBrain>().currentGun = currentGun;
         }
+
+        currentAmmo--;
     }
 }
