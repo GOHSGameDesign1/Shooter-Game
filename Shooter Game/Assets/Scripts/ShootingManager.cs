@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShootingManager : MonoBehaviour
 {
@@ -20,6 +22,10 @@ public class ShootingManager : MonoBehaviour
     public float currentAmmo;
     bool hasAmmo;
     bool reloading;
+
+    //UI
+    public TMP_Text currentAmmoText;
+    public TMP_Text AmmoText;
     
 
 
@@ -44,6 +50,11 @@ public class ShootingManager : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(playerInputActionsShooting.Player.Fire.ReadValue<float>());
+
+
+        Ammo = currentGun.Ammo;
+        AmmoText.text = "/ " + currentGun.Ammo.ToString();
+        currentAmmoText.text = currentAmmo.ToString();
     }
 
     private void FixedUpdate()
@@ -53,7 +64,7 @@ public class ShootingManager : MonoBehaviour
         gunHolder.transform.rotation = Quaternion.Euler(0, 0, angle);
 
         shooting = playerInputActionsShooting.Player.Fire.ReadValue<float>();
-        Ammo = currentGun.Ammo;
+
 
         if(currentAmmo <= 0) 
         { 
@@ -96,7 +107,6 @@ public class ShootingManager : MonoBehaviour
 
     void Reload_Performed(InputAction.CallbackContext context)
     {
-        Debug.Log(context.control.name);
         if(context.control.name == "r")
         {
             if(currentAmmo != Ammo && !reloading)
@@ -114,6 +124,7 @@ public class ShootingManager : MonoBehaviour
         }
     }
 
+    //This gets input from the playerInput script
     public void PlayerInput(PlayerInputs playerInputs)
     {
         playerInputActionsShooting = playerInputs.playerInputActions;
@@ -135,6 +146,7 @@ public class ShootingManager : MonoBehaviour
         currentAmmo = Ammo;
         hasAmmo = true;
         reloading = false;
+        Debug.Log("Reloaded!");
     }
 
     void Shoot()
