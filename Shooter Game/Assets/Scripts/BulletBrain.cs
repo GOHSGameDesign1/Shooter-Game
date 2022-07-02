@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class BulletBrain : MonoBehaviour
 {
 
@@ -12,6 +11,7 @@ public class BulletBrain : MonoBehaviour
     public float damage;
     public GunScriptableObject currentGun;
     public GameObject currentCollidingEnemy;
+    public ParticleSystem hitParticles;
 
     private void Awake()
     {
@@ -22,23 +22,26 @@ public class BulletBrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
         AI = currentGun.bulletAI;
         damage = currentGun.damage;
         bulletSpeed = currentGun.bulletSpeed;
         AI.ThinkStart(this);
+
+        StartCoroutine("Timeout");
     }
 
     // Update is called once per frame
     void Update()
     {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         AI.Think(this);
     }
 
     private void FixedUpdate()
     {
         //rb.velocity = bulletSpeed * transform.right;
-
+       /* Debug.Log(screenBounds);
 
         if (Mathf.Abs(transform.position.x) > screenBounds.x + 10)
         {
@@ -48,7 +51,7 @@ public class BulletBrain : MonoBehaviour
         if (Mathf.Abs(transform.position.y) > screenBounds.y + 10)
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,6 +61,9 @@ public class BulletBrain : MonoBehaviour
             currentCollidingEnemy = collision.gameObject;
             AI.ThinkCollide(this);
 
+        } else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -74,5 +80,16 @@ public class BulletBrain : MonoBehaviour
     {
         //rb.velocity = transform.right * bulletSpeed;
         rb.MovePosition(rb.position + (Vector2)transform.right.normalized * bulletSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(hitParticles, transform.position, transform.rotation);
+    }
+
+    IEnumerator Timeout()
+    {
+        yield return new WaitForSeconds(10f);
+        Destroy(gameObject);
     }
 }

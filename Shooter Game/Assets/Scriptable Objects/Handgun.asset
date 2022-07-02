@@ -15,7 +15,7 @@ MonoBehaviour:
   fireRate: 0.1
   damage: 1
   Ammo: 7
-  ReloadTime: 0.7
+  ReloadTime: 0.6
   gunSprite: {fileID: 21300000, guid: 73edfcc88dab4e648bd9cfea7e953818, type: 3}
   canAutoFire: 0
   fireCoordinates: {x: 0.7, y: 0, z: 0}

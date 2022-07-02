@@ -24,7 +24,7 @@ public class ShootingManager : MonoBehaviour
     bool reloading;
 
     //UI
-    public TMP_Text currentAmmoText;
+    //public TMP_Text currentAmmoText;
     public TMP_Text AmmoText;
     
 
@@ -53,8 +53,8 @@ public class ShootingManager : MonoBehaviour
 
 
         Ammo = currentGun.Ammo;
-        AmmoText.text = "/ " + currentGun.Ammo.ToString();
-        currentAmmoText.text = currentAmmo.ToString();
+        AmmoText.text = currentAmmo.ToString() + " / " + currentGun.Ammo.ToString();
+        //currentAmmoText.text = currentAmmo.ToString();
     }
 
     private void FixedUpdate()
