@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5150767964632654222}
   runSpeed: 3
+  enemies: []
+  repelRange: 1.5
 --- !u!114 &5150767964632654219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,4 +163,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a804e7cf8ee7744994af992233c0f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 2
+  currentHealth: 0

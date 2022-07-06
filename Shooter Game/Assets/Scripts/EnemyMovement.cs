@@ -8,6 +8,9 @@ public class EnemyMovement : MonoBehaviour
     public float runSpeed;
     private GameObject player;
     Vector2 direction;
+    public GameObject[] enemies;
+    public float repelRange;
+    Vector2 repelForce;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         direction = player.transform.position - transform.position;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //rb.velocity = direction.normalized * runSpeed;
 
 
@@ -27,6 +31,14 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //rb.velocity = direction.normalized * runSpeed;
-        rb.MovePosition(rb.position + direction.normalized * runSpeed * Time.fixedDeltaTime);
+
+        foreach(GameObject enemy in enemies)
+        {
+            if (Vector2.Distance(enemy.transform.position, rb.position) <= repelRange)
+            {
+                repelForce += (rb.position - (Vector2)enemy.transform.position).normalized;
+            }
+        }
+        rb.MovePosition(rb.position + direction.normalized * runSpeed * Time.fixedDeltaTime + (repelForce * Time.fixedDeltaTime));
     }
 }

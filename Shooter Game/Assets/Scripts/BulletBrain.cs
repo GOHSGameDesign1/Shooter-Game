@@ -71,7 +71,7 @@ public class BulletBrain : MonoBehaviour
     {
         if(currentCollidingEnemy != null)
         {
-            currentCollidingEnemy.GetComponent<EnemyHealth>().health -= damage;
+            currentCollidingEnemy.GetComponent<EnemyHealth>().currentHealth -= damage;
             Destroy(gameObject);
         }
     }

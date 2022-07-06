@@ -26,6 +26,7 @@ public class ShootingManager : MonoBehaviour
     //UI
     //public TMP_Text currentAmmoText;
     public TMP_Text AmmoText;
+    public Image reloadBar;
     
 
 
@@ -39,7 +40,7 @@ public class ShootingManager : MonoBehaviour
         Ammo = currentGun.Ammo;
         currentAmmo = Ammo;
         hasAmmo = true;
-
+        reloadBar.fillAmount = 0f;
         //shooting = new PlayerInputActions();
         //shooting.Player.Enable();
         //shooting.Player.Fire.performed += Fire_Performed;
@@ -54,6 +55,8 @@ public class ShootingManager : MonoBehaviour
 
         Ammo = currentGun.Ammo;
         AmmoText.text = currentAmmo.ToString() + " / " + currentGun.Ammo.ToString();
+
+        //ReloadBarFiller();
         //currentAmmoText.text = currentAmmo.ToString();
     }
 
@@ -112,6 +115,7 @@ public class ShootingManager : MonoBehaviour
             if(currentAmmo != Ammo && !reloading)
             {
                 StartCoroutine("Reload");
+                StartCoroutine("ReloadUIBar");
             }
         }
 
@@ -120,6 +124,7 @@ public class ShootingManager : MonoBehaviour
             if(currentAmmo <= 0 && !reloading)
             {
                 StartCoroutine("Reload");
+                StartCoroutine("ReloadUIBar");
             }
         }
     }
@@ -149,6 +154,8 @@ public class ShootingManager : MonoBehaviour
         Debug.Log("Reloaded!");
     }
 
+
+
     void Shoot()
     {
         for(int i = 0; i < currentGun.bulletsShotAtOnce; i++)
@@ -159,5 +166,20 @@ public class ShootingManager : MonoBehaviour
         }
 
         currentAmmo--;
+    }
+
+    void ReloadBarFiller()
+    {
+        reloadBar.fillAmount = currentAmmo / Ammo;
+    }
+
+    IEnumerator ReloadUIBar()
+    {
+        reloadBar.fillAmount = 1;
+        for(int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(currentGun.ReloadTime/5);
+            reloadBar.fillAmount -= 0.2f;
+        }
     }
 }
