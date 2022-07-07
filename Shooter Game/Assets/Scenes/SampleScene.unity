@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -582,7 +583,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -636,21 +637,35 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 24.10868, y: -11.39019}
-  - {x: -24.10905, y: -11.624003}
-  - {x: -24.016409, y: 12.757047}
-  - {x: 24.130848, y: 12.769938}
-  - {x: 24.129652, y: -11.420501}
+  - {x: 27.234465, y: -11.265159}
+  - {x: -27.109802, y: -11.373941}
+  - {x: -27.079678, y: 12.632015}
+  - {x: 27.56921, y: 12.957486}
+  - {x: 27.442984, y: -11.420501}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da63322d5ad2c08489d49a53b71fc851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1270606343}
+  enemyPrefab: {fileID: 5150767964632654225, guid: 0be693e908416264392884f325001b12, type: 3}
 --- !u!1001 &663933001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -880,6 +895,7 @@ GameObject:
   - component: {fileID: 1270606347}
   - component: {fileID: 1270606348}
   - component: {fileID: 1270606349}
+  - component: {fileID: 1270606350}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -975,7 +991,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1270606347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,11 +1034,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a097836a0b8a14fbc5e3611034b3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 11400000, guid: 871e219b3fe2c454b88b0792837838f9, type: 2}
+  currentGun: {fileID: 11400000, guid: 9b6f623512ebf1b48af602e7823d4d6d, type: 2}
   bullet: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
   currentAmmo: 0
   AmmoText: {fileID: 406095969}
   reloadBar: {fileID: 44715436}
+--- !u!58 &1270606350
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270606343}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.24210298}
+  serializedVersion: 2
+  m_Radius: 0.657897
 --- !u!1 &1318600212
 GameObject:
   m_ObjectHideFlags: 0

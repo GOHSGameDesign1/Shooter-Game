@@ -15,8 +15,10 @@ MonoBehaviour:
   fireRate: 1
   damage: 5
   Ammo: 5
-  gunSprite: {fileID: 7482667652216324306, guid: deb54fd1f91e10747a12746a22d34021, type: 3}
+  ReloadTime: 1
+  gunSprite: {fileID: 21300000, guid: 73edfcc88dab4e648bd9cfea7e953818, type: 3}
   canAutoFire: 0
-  fireCoordinates: {x: 1, y: 0, z: 0}
-  bulletAI: {fileID: 11400000, guid: 6d0a38675b4c08e41969adb1f051df0a, type: 2}
+  fireCoordinates: {x: 0.7, y: 0, z: 0}
+  bulletSpeed: 70
+  bulletAI: {fileID: 11400000, guid: efe0f4e875a4ae948a9e41175a495d8e, type: 2}
   bulletsShotAtOnce: 5

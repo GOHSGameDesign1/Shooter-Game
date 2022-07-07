@@ -41,17 +41,17 @@ public class BulletBrain : MonoBehaviour
     private void FixedUpdate()
     {
         //rb.velocity = bulletSpeed * transform.right;
-       /* Debug.Log(screenBounds);
+        /* Debug.Log(screenBounds);
 
-        if (Mathf.Abs(transform.position.x) > screenBounds.x + 10)
-        {
-            Destroy(gameObject);
-        }
+         if (Mathf.Abs(transform.position.x) > screenBounds.x + 10)
+         {
+             Destroy(gameObject);
+         }
 
-        if (Mathf.Abs(transform.position.y) > screenBounds.y + 10)
-        {
-            Destroy(gameObject);
-        }*/
+         if (Mathf.Abs(transform.position.y) > screenBounds.y + 10)
+         {
+             Destroy(gameObject);
+         }*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -69,7 +69,7 @@ public class BulletBrain : MonoBehaviour
 
     public void EnemyHit()
     {
-        if(currentCollidingEnemy != null)
+        if (currentCollidingEnemy != null)
         {
             currentCollidingEnemy.GetComponent<EnemyHealth>().currentHealth -= damage;
             Destroy(gameObject);
@@ -91,5 +91,20 @@ public class BulletBrain : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            currentCollidingEnemy = collision.gameObject;
+            AI.ThinkCollide(this);
+
+        }
+        else if(collision.gameObject.tag == "MainCamera")
+        {
+            Debug.Log("destroy");
+            Destroy(gameObject);
+        }
     }
 }
