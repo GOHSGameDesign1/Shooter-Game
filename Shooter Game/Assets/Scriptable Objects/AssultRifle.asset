@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.01
   damage: 5
-  Ammo: 100
+  Ammo: 300
   ReloadTime: 2
   gunSprite: {fileID: 21300000, guid: 73edfcc88dab4e648bd9cfea7e953818, type: 3}
   canAutoFire: 1

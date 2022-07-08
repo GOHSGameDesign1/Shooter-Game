@@ -643,11 +643,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 27.234465, y: -11.265159}
-  - {x: -27.109802, y: -11.373941}
-  - {x: -27.079678, y: 12.632015}
-  - {x: 27.56921, y: 12.957486}
-  - {x: 27.442984, y: -11.420501}
+  - {x: 33.27236, y: -15.564868}
+  - {x: -33.87956, y: -15.582169}
+  - {x: -34.242447, y: 16.534492}
+  - {x: 33.424133, y: 16.250883}
+  - {x: 33.29791, y: -16.269112}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1006,8 +1006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1270606346}
   runSpeed: 10
-  dashingFrames: 25
-  dashingSpeed: 40
+  dashingFrames: 30
+  dashingSpeed: 30
 --- !u!114 &1270606348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a097836a0b8a14fbc5e3611034b3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 11400000, guid: 9b6f623512ebf1b48af602e7823d4d6d, type: 2}
+  currentGun: {fileID: 11400000, guid: 33d6cfab25396364484749e3d86274d6, type: 2}
   bullet: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
   currentAmmo: 0
   AmmoText: {fileID: 406095969}

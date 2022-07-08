@@ -8,20 +8,27 @@ public class EnemyMovement : MonoBehaviour
     public float runSpeed;
     private GameObject player;
     Vector2 direction;
-    public GameObject[] enemies;
+    private static List<GameObject> enemies;
     public float repelRange;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         direction = player.transform.position - transform.position;
+
+
+        if (enemies == null)
+        {
+            enemies = new List<GameObject>();
+        }
+
+        enemies.Add(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
         direction = (player.transform.position - transform.position).normalized;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         //rb.velocity = direction.normalized * runSpeed;
 
 
@@ -34,7 +41,16 @@ public class EnemyMovement : MonoBehaviour
 
         foreach(GameObject enemy in enemies)
         {
-            
+            if(enemy == null)
+            {
+                continue;
+            }
+
+            if (enemy == this.gameObject)
+            {
+                continue;
+            }
+
             if (Vector2.Distance(enemy.transform.position, rb.position) <= repelRange)
             {
                 Vector2 repelDir = (rb.position - (Vector2)enemy.transform.position).normalized;

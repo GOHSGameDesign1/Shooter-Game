@@ -24,4 +24,13 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Bullet")
+        {
+            Debug.Log("enemy got hit");
+            currentHealth -= collision.GetComponent<BulletBrain>().damage;
+        }
+    }
 }

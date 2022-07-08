@@ -7,10 +7,12 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject player;
     public GameObject enemyPrefab;
+    Vector2 screenBounds;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Spawn());
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Vector2 spawnPos = player.transform.position;
-        spawnPos += Random.insideUnitCircle.normalized * 23;
+        spawnPos += Random.insideUnitCircle.normalized * (screenBounds.x + 4);
         Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
     }
 

@@ -15,8 +15,8 @@ public class BulletBrain : MonoBehaviour
 
     private void Awake()
     {
-        //AI = currentGun.bulletAI;
-        //damage = currentGun.damage;
+        AI = currentGun.bulletAI;
+        damage = currentGun.damage;
     }
 
     // Start is called before the first frame update
@@ -56,7 +56,7 @@ public class BulletBrain : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+       /* if (collision.gameObject.tag == "Enemy")
         {
             currentCollidingEnemy = collision.gameObject;
             AI.ThinkCollide(this);
@@ -64,14 +64,14 @@ public class BulletBrain : MonoBehaviour
         } else
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
     public void EnemyHit()
     {
         if (currentCollidingEnemy != null)
         {
-            currentCollidingEnemy.GetComponent<EnemyHealth>().currentHealth -= damage;
+            //currentCollidingEnemy.GetComponent<EnemyHealth>().currentHealth -= damage;
             Destroy(gameObject);
         }
     }
@@ -89,7 +89,7 @@ public class BulletBrain : MonoBehaviour
 
     IEnumerator Timeout()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
 
@@ -97,13 +97,11 @@ public class BulletBrain : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            currentCollidingEnemy = collision.gameObject;
-            AI.ThinkCollide(this);
+            Destroy(gameObject);
 
         }
         else if(collision.gameObject.tag == "MainCamera")
         {
-            Debug.Log("destroy");
             Destroy(gameObject);
         }
     }
