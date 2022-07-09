@@ -1007,7 +1007,7 @@ MonoBehaviour:
   rb: {fileID: 1270606346}
   runSpeed: 10
   dashingFrames: 30
-  dashingSpeed: 30
+  dashingSpeed: 40
 --- !u!114 &1270606348
 MonoBehaviour:
   m_ObjectHideFlags: 0

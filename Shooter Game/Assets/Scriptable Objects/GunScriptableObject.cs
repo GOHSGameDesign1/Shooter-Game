@@ -9,6 +9,7 @@ public class GunScriptableObject : ScriptableObject
     public float damage;
     public float Ammo;
     public float ReloadTime;
+    public float inaccuracyAngle;
     public Sprite gunSprite;
     public bool canAutoFire;
     public Vector3 fireCoordinates;

@@ -6,12 +6,12 @@ using UnityEngine;
 public class WiggleAI : BulletAI
 {
 
-    private Rigidbody2D rb;
+    //private Rigidbody2D rb;
     public override void Think(BulletBrain bullet)
     {
-        rb = bullet.gameObject.GetComponent<Rigidbody2D>();
-        bullet.transform.Rotate(0, 0, Random.Range(-20, 20));
-        bullet.Move();
+        //rb = bullet.gameObject.GetComponent<Rigidbody2D>();
+        //bullet.transform.Rotate(0, 0, Random.Range(-20, 20));
+        //bullet.Move();
     }
 
     public override void ThinkStart(BulletBrain bullet)
@@ -21,6 +21,6 @@ public class WiggleAI : BulletAI
 
     public override void ThinkCollide(BulletBrain bullet)
     {
-        bullet.EnemyHit();
+        //bullet.EnemyHit();
     }
 }

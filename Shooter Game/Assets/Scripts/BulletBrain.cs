@@ -1,32 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class BulletBrain : MonoBehaviour
+public class BulletBrain : BulletBaseBrain
 {
 
     public float bulletSpeed;
-    public Rigidbody2D rb;
-    Vector2 screenBounds;
+    //public Rigidbody2D rb;
     public BulletAI AI;
     public float damage;
-    public GunScriptableObject currentGun;
+    //public GunScriptableObject currentGun;
     public GameObject currentCollidingEnemy;
     public ParticleSystem hitParticles;
 
     private void Awake()
     {
+        GetCurrentGun();
         AI = currentGun.bulletAI;
         damage = currentGun.damage;
+        Rotate(currentGun.inaccuracyAngle);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
-        AI = currentGun.bulletAI;
-        damage = currentGun.damage;
-        bulletSpeed = currentGun.bulletSpeed;
-        AI.ThinkStart(this);
 
         StartCoroutine("Timeout");
     }
@@ -34,24 +30,12 @@ public class BulletBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        AI.Think(this);
+
     }
 
     private void FixedUpdate()
     {
-        //rb.velocity = bulletSpeed * transform.right;
-        /* Debug.Log(screenBounds);
-
-         if (Mathf.Abs(transform.position.x) > screenBounds.x + 10)
-         {
-             Destroy(gameObject);
-         }
-
-         if (Mathf.Abs(transform.position.y) > screenBounds.y + 10)
-         {
-             Destroy(gameObject);
-         }*/
+        Move();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -76,22 +60,12 @@ public class BulletBrain : MonoBehaviour
         }
     }
 
-    public void Move()
-    {
-        //rb.velocity = transform.right * bulletSpeed;
-        rb.MovePosition(rb.position + (Vector2)transform.right.normalized * bulletSpeed * Time.fixedDeltaTime);
-    }
-
     private void OnDestroy()
     {
         Instantiate(hitParticles, transform.position, transform.rotation);
     }
 
-    IEnumerator Timeout()
-    {
-        yield return new WaitForSeconds(5f);
-        Destroy(gameObject);
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
