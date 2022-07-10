@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
         if(collision.tag == "Bullet")
         {
             Debug.Log("enemy got hit");
-            currentHealth -= collision.GetComponent<BulletBrain>().damage;
+            currentHealth -= collision.GetComponent<BulletBaseBrain>().damage;
         }
     }
 }

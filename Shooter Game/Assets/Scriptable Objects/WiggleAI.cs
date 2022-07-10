@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BulletAI/Wiggle")]
 public class WiggleAI : BulletAI
 {
-
+/*
     //private Rigidbody2D rb;
     public override void Think(BulletBrain bullet)
     {
@@ -23,4 +23,5 @@ public class WiggleAI : BulletAI
     {
         //bullet.EnemyHit();
     }
+*/
 }

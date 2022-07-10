@@ -14,7 +14,6 @@ public class GunScriptableObject : ScriptableObject
     public bool canAutoFire;
     public Vector3 fireCoordinates;
     public float bulletSpeed;
-    public BulletAI bulletAI;
     public float bulletsShotAtOnce;
 
     //public abstract void BulletAI();

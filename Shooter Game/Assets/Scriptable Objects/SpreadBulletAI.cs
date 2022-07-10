@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BulletAI/Spread")]
 public class SpreadBulletAI : BulletAI
 {
-    //private Rigidbody2D rb;
+  /*  //private Rigidbody2D rb;
     public override void Think(BulletBrain bullet)
     {
         //rb = bullet.gameObject.GetComponent<Rigidbody2D>();
@@ -21,5 +21,5 @@ public class SpreadBulletAI : BulletAI
     public override void ThinkCollide(BulletBrain bullet)
     {
         //bullet.EnemyHit();
-    }
+    } */
 }
