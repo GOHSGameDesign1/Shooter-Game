@@ -14,7 +14,6 @@ public class MinigunBullet : BulletBaseBrain
     // Start is called before the first frame update
     void Start()
     {
-
         StartCoroutine("Timeout");
     }
 
