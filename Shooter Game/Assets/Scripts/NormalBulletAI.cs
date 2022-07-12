@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class MinigunBullet : BulletBaseBrain
+public class NormalBulletAI : BulletBaseBrain
 {
     public ParticleSystem hitParticles;
 

@@ -22,7 +22,7 @@ public class BulletBaseBrain : MonoBehaviour
 
     public void Rotate(float angle)
     {
-        rb.rotation += Random.Range(angle, angle * -1);
+        rb.rotation += Random.Range(angle/2, angle/2 * -1);
     }
 
     IEnumerator Timeout()

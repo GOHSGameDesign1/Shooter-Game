@@ -10,11 +10,13 @@ public class GunScriptableObject : ScriptableObject
     public float Ammo;
     public float ReloadTime;
     public float inaccuracyAngle;
-    public Sprite gunSprite;
     public bool canAutoFire;
-    public Vector3 fireCoordinates;
     public float bulletSpeed;
     public float bulletsShotAtOnce;
+    public float spreadAngleRange;
+    public GameObject bulletPrefab;
 
+    public Sprite gunSprite;
+    public Vector3 fireCoordinates;
     //public abstract void BulletAI();
 }

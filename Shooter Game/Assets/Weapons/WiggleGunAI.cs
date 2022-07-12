@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WiggleGunAI : BulletBaseBrain
+public class HandGun : BulletBaseBrain
 {
     public ParticleSystem hitParticles;
 

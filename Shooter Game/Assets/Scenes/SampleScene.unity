@@ -943,7 +943,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4a00207a6802d08479f7b60996d121e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1034,8 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a097836a0b8a14fbc5e3611034b3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 11400000, guid: 33d6cfab25396364484749e3d86274d6, type: 2}
-  bullet: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
+  currentGun: {fileID: 11400000, guid: 9b6f623512ebf1b48af602e7823d4d6d, type: 2}
   currentAmmo: 0
   AmmoText: {fileID: 406095969}
   reloadBar: {fileID: 44715436}

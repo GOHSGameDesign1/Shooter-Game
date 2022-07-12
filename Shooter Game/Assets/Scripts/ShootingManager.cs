@@ -15,7 +15,7 @@ public class ShootingManager : MonoBehaviour
     Transform gunHolder;
     PlayerInputActions playerInputActionsShooting;
     GameObject currentBullet;
-    public GameObject bullet;  //will change this to get from scriptable object later
+    private GameObject bullet;  //will change this to get from scriptable object later
     bool offCooldown = true;
     float shooting;
     float Ammo;
@@ -36,6 +36,7 @@ public class ShootingManager : MonoBehaviour
         spriteRenderer = gunHolder.gameObject.GetComponent<SpriteRenderer>();
         firePoint = transform.Find("Gun_Holder/Fire_Point");
         firePoint.transform.position = currentGun.fireCoordinates;
+        bullet = currentGun.bulletPrefab;
         spriteRenderer.sprite = currentGun.gunSprite;
         Ammo = currentGun.Ammo;
         currentAmmo = Ammo;
@@ -158,9 +159,9 @@ public class ShootingManager : MonoBehaviour
 
     void Shoot()
     {
-        for(int i = 0; i < currentGun.bulletsShotAtOnce; i++)
+        for(int i = 1; i <= currentGun.bulletsShotAtOnce; i++)
         {
-            currentBullet = Instantiate(bullet, firePoint.transform.position, gunHolder.transform.rotation);
+            Instantiate(bullet, firePoint.transform.position, Quaternion.Euler(0, 0, gunHolder.transform.rotation.eulerAngles.z - currentGun.spreadAngleRange/2 + (i/currentGun.bulletsShotAtOnce * currentGun.spreadAngleRange) ));
         }
 
         currentAmmo--;
