@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
 
     public float maxHealth;
     public float currentHealth;
+    bool canCollide;
 
     //public Image healthBar;
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        canCollide = true;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
@@ -27,10 +29,18 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bullet")
+        if (currentHealth <= 0)
         {
-            Debug.Log("enemy got hit");
-            currentHealth -= collision.GetComponent<BulletBaseBrain>().damage;
+            Destroy(gameObject);
+            if(collision.tag == "Bullet" && canCollide) Destroy(collision.gameObject);
+            canCollide = false;
         }
+
+        if (collision.tag == "Bullet" && canCollide)
+        {            
+            Destroy(collision.gameObject);
+        }
+
+
     }
 }

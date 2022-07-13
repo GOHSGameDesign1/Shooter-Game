@@ -21,7 +21,7 @@ public class HandGun : BulletBaseBrain
     private void FixedUpdate()
     {
         Move();
-        Rotate(currentGun.inaccuracyAngle);
+        Rotate(currentGun.inaccuracyAngle); // In this case inaccuracyAngle is the range the bullet can wiggle every frame
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

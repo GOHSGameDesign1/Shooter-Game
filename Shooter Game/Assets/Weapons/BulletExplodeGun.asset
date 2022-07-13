@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76e16b37a3e650d4397da15056254794, type: 3}
-  m_Name: ShotGun
+  m_Name: BulletExplodeGun
   m_EditorClassIdentifier: 
-  fireRate: 0.1
-  damage: 2
-  Ammo: 100
+  fireRate: 1
+  damage: 3
+  Ammo: 6
   ReloadTime: 1
-  inaccuracyAngle: 10
+  inaccuracyAngle: 0
   canAutoFire: 0
-  bulletSpeed: 70
-  bulletsShotAtOnce: 5
-  spreadAngleRange: 30
-  bulletPrefab: {fileID: 7017175715340140886, guid: 2d1a2133eaf05f94fad0c79a71779c65, type: 3}
-  gunSprite: {fileID: 21300000, guid: 73edfcc88dab4e648bd9cfea7e953818, type: 3}
-  fireCoordinates: {x: 0.3, y: 0, z: 0}
+  bulletSpeed: 50
+  bulletsShotAtOnce: 1
+  spreadAngleRange: 0
+  bulletPrefab: {fileID: 5841263608140185279, guid: 61d2628f621fc0d4bbf04a112d92cc58, type: 3}
+  gunSprite: {fileID: 3625043607559282579, guid: 1fe17dadc2d1a6e4088e05ee71affaea, type: 3}
+  fireCoordinates: {x: 0, y: 0, z: 0}

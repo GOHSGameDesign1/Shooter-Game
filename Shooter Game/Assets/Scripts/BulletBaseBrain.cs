@@ -43,6 +43,19 @@ public class BulletBaseBrain : MonoBehaviour
             return;
         }
 
+        if(collision.gameObject.tag == "Enemy")
+        {
+            collision.GetComponent<EnemyHealth>().currentHealth -= damage;
+            return;
+        }
+
+        Destroy(gameObject);
+    }
+
+    public IEnumerator LateDestroy()
+    {
+        yield return new WaitForEndOfFrame();
+        Debug.Log("now destroying");
         Destroy(gameObject);
     }
 }
