@@ -256,7 +256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150767964632654225, guid: 0be693e908416264392884f325001b12, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be693e908416264392884f325001b12, type: 3}
@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150767964632654225, guid: 0be693e908416264392884f325001b12, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be693e908416264392884f325001b12, type: 3}
@@ -1098,8 +1098,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1270606346}
   runSpeed: 10
-  dashingFrames: 30
-  dashingSpeed: 40
+  dashingFrames: 6
+  dashingSpeed: 45
 --- !u!114 &1270606348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a097836a0b8a14fbc5e3611034b3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 11400000, guid: 33d6cfab25396364484749e3d86274d6, type: 2}
+  currentGun: {fileID: 11400000, guid: 871e219b3fe2c454b88b0792837838f9, type: 2}
   currentAmmo: 0
   AmmoText: {fileID: 406095969}
   reloadBar: {fileID: 44715436}

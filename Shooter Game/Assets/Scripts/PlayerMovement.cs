@@ -32,22 +32,24 @@ public class PlayerMovement : MonoBehaviour
     void Dash_Performed(InputAction.CallbackContext context)
     {
         isDashing = true;
-        rb.velocity = inputVector * dashingSpeed;
+        //rb.MovePosition(rb.position + inputVector * dashingSpeed * Time.fixedDeltaTime);
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
         if(!isDashing) 
         { 
-        inputVector = playerInputActionsMovement.Player.Movement.ReadValue<Vector2>();
-        rb.velocity = inputVector * runSpeed;
+        inputVector = playerInputActionsMovement.Player.Movement.ReadValue<Vector2>().normalized;
+        rb.MovePosition(rb.position + inputVector * runSpeed * Time.fixedDeltaTime);
         }
         else
         {
             currentDashingFrames--;
-            if(currentDashingFrames <= 0)
+            rb.MovePosition(rb.position + inputVector * dashingSpeed * Time.fixedDeltaTime);
+            if (currentDashingFrames <= 0)
             {
                 isDashing = false;
                 currentDashingFrames = dashingFrames;
